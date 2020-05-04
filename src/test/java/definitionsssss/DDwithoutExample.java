@@ -10,10 +10,12 @@ import io.cucumber.java.en.When;
 
 public class DDwithoutExample {
 	@Given("^user is in the login page$")
-	public void userIsAlreadyInTheLoginPage() throws Throwable {
+	public void userIsAlreadyInTheLoginPage(DataTable cred) throws Throwable {
 		System.out.println("user is already in the login page");
 		// Write code here that turns the phrase above into concrete actions
-
+		List<String> abc = cred.asList(String.class);
+		System.out.println(abc.toString());
+		System.out.println(abc.get(1));
 	}
 
 	@When("^Verify the \"(.*)\" of the login page$")
@@ -31,6 +33,7 @@ public class DDwithoutExample {
 		System.out.println("user enter username and password");
 		System.out.println("username of the user: " + username + " password of the user: " + password);
 		System.out.println("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
+		
 	}
 
 	
@@ -44,7 +47,11 @@ public class DDwithoutExample {
 		System.out.println("password" + listname.row(0).get(1));
 		System.out.println("username" + listname.row(1).get(0));
 		System.out.println("password" + listname.row(1).get(1));
-
+		Map<String,String> data1 = cred.asMap(String.class, String.class);
+		System.out.println(data1.get("naveen"));
+		System.out.println(data1.get("naveen1"));
+		
+		
 	}
 
 	
@@ -53,6 +60,9 @@ public class DDwithoutExample {
 	public void userIsHomePage(DataTable names) throws Throwable {
 
 		System.out.println("User is on home page");
+		
+		
+		
 		for (Map<Object, Object> data : names.asMaps(String.class, String.class)) {
 			System.out.println(data.get("name"));
 			System.out.println(data.get("phone"));

@@ -12,6 +12,9 @@ description :::
 
 Scenario Outline: Free Crm Login Page
 Given user is in the login page
+|naveen|
+|Naveen1|
+
 #simple test data (number of string )
 When Verify the "krishna" of the login page
 #example  (it executes two time based on the test data in the Example )
